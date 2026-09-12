@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centralized Competitions Management System - Easwari Engineering College">
+  <title>Centralized Competitions Management System</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown-dark: #4e342e;
+      --brown: #6b3b24;
+      --brown-mid: #795548;
+      --brown-light: #eadfd7;
+      --cream: #f7f4f0;
+      --text-muted: #6d4c41;
+      --border: #e4d8d2;
+    }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: #3e2723;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-banner {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1050px;
+      margin: 42px auto;
+      padding: 0 20px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #eee3dc;
+      color: var(--brown);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 34px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 34px 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 18px rgba(62, 39, 35, .12);
+      transition: transform .25s ease, box-shadow .25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 9px 25px rgba(62, 39, 35, .18);
+    }
+
+    .icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #f3eae4;
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      color: var(--brown-dark);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      min-width: 220px;
+      padding: 13px 24px;
+      border-radius: 8px;
+      background: var(--brown-mid);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .btn:hover {
+      background: #5d4037;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      background: var(--brown-dark);
+      transform: translateY(0);
+    }
+
+    .info {
+      max-width: 850px;
+      margin: 34px auto 0;
+      background: #fff;
+      border-left: 5px solid var(--brown-mid);
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-align: left;
+      box-shadow: 0 3px 12px rgba(62, 39, 35, .08);
+    }
+
+    .info h3 {
+      color: var(--brown-dark);
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .info p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: auto;
+      background: var(--brown-dark);
+      color: #fff;
+      text-align: center;
+      padding: 21px 15px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 760px) {
+      .cards { grid-template-columns: 1fr; }
+      .container { margin: 30px auto; }
+      .title { font-size: 27px; }
+    }
+
+    @media (max-width: 500px) {
+      .title { font-size: 23px; }
+      .subtitle { font-size: 15px; }
+      .card { padding: 28px 20px; }
+      .btn { width: 100%; min-width: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Department banner -->
+  <div class="header-banner">
+    <img src="https://aiads-eec.github.io/Services/header-banner.png"
+         alt="Department of Artificial Intelligence and Data Science - Easwari Engineering College">
+  </div>
+
+  <main class="container">
+    <div class="eyebrow">Competitions Portal</div>
+
+    <h1 class="title">Centralized Competitions Management System</h1>
+
+    <p class="subtitle">
+      Easwari Engineering College, Chennai
+    </p>
+
+    <section class="cards">
+
+      <div class="card">
+        <div class="icon">🏆</div>
+        <h2>Competitions Head</h2>
+        <p>
+          Create competitions, assign department coordinators,
+          monitor registrations and participation, review department
+          targets versus actual wins, and generate reports.
+        </p>
+        <a id="headLink" class="btn" href="#" target="_blank" rel="noopener noreferrer">
+          Competitions Head Login
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="icon">👥</div>
+        <h2>Department Coordinator</h2>
+        <p>
+          View assigned competitions, select participating students,
+          update registration and participation progress, record results,
+          and upload supporting certificates.
+        </p>
+        <a id="coordinatorLink" class="btn" href="#" target="_blank" rel="noopener noreferrer">
+          Department Coordinator Login
+        </a>
+      </div>
+
+    </section>
+
+    <section class="info">
+      <h3>Portal Access</h3>
+      <p>
+        Select the appropriate portal above. Competitions Head access is
+        restricted to authorized Competition Head credentials. Department
+        Coordinators should use their registered coordinator email and PIN.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Easwari Engineering College, Chennai</strong><br>
+    © 2026 AI&amp;DS Department. All Rights Reserved.
+  </footer>
+
+  <script>
+    /*
+      IMPORTANT:
+      Paste your deployed Google Apps Script Web App URL below.
+      Example:
+      const WEB_APP_URL = "https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
+    */
+    const WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    document.getElementById("headLink").href =
+      WEB_APP_URL + "?view=head";
+
+    document.getElementById("coordinatorLink").href =
+      WEB_APP_URL + "?view=coordinator";
+  </script>
+
+</body>
+</html>
